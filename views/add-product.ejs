@@ -1,0 +1,60 @@
+<%- include("partials/header.ejs") %> 
+    </div>
+    <% if(message !== '') { %>
+        <div class="container">
+            <div class="row text-center">
+                <% if(err){ %>
+                    <p class="alert alert-danger m-3"><%= message %> </p>
+                <% } else { %> 
+                    <p class="alert alert-success m-3"><%= message %> </p>
+                <% } %> 
+            </div>
+        </div>
+    <% } %> 
+    <div class="container">
+        <div class="row d-flex flex-md-row flex-column-reverse align-items-center ">
+            <form class="pt-5 col-md-6" action="/products/add-product" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="category">Gategory</label>
+                    <select class="form-control" id="category" name="category" required>
+                        <option selected disabled value="samsung">Choose gategory</option>
+                        <option value="samsung">SAMSUNG</option>
+                        <option value="iphone">iPhone</option>
+                        <option value="sony">SONY</option>
+                        <option value="oppo">OPPO</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input name="title" placeholder="ex. iPhone 12 PRO" class="form-control" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea type="text" name="description" class="form-control" placeholder="About the product" id="description" required></textarea>
+                </div>
+        
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" name="quantity" min="1" placeholder="ex. 5 Itmes" class="form-control" id="quantity" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" min="1" placeholder="ex. 1000 LE" class="form-control" id="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">
+                        Image<br />
+                        <span class="btn btn-outline-secondary mt-2">Upload</span>
+                    </label>
+                    <input type="file" style="display: none;" name="img" class="form-control" id="image" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Product</button>
+            </form>
+            <div class="col-md-6 text-center mt-4">
+                <img src="../assets/imgs/iphones.png" width="100%" height="100%" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %> 
+    </div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Welcome to in KMT Shop, HRU!</h1>
+            <p class="lead">This is a simple CRUD NODE JS APP, a simple Fullstack website for adding extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-success btn-sm" href="#" role="button">See More</a>
+        </div>
+    </div>
+    <div class="container-md">
+        <div class="row d-flex flex-row justify-content-sm-evenly align-items-md-center">
+            <% products.forEach((product) => { %>
+                <div class="card col-sm-6 col-lg-4" style="width: 30rem; height: 40rem">
+                    <img src="../assets/imgs/products/<%=`${product.productID}.${product.image.split('.')[1]}`%>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= product.title %></h5>
+                        <p class="card-text"><%= product.description %></p>
+                        <p class="card-text"><%= product.price %> LE</p>
+                        <p class="card-text"><%= product.category %></p>
+                        <p class="card-text"><%= product.quantity %> Items</p>
+                        <a href="/products/edit-product/<%=product.productID%>" class="btn btn-secondary">Edit</a>
+                        <a href="/products/delete-product/<%=product.productID%>" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            <% }) %> 
+        </div>
+    </div>
+</body>
+</html>
